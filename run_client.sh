@@ -204,14 +204,20 @@ for serviceTime in 0;do #3 is EXP service time distribution
     done   
     '
     #for dist in 19 20 21 22;do #19 20
-    for dist in 21;do #19 20
+    for dist in 22;do #19 20
         echo $dist
         mkdir $dirName"/"$dist
         for queues in 1024;do
             mkdir $dirName"/"$dist"/"$queues
 
             #50 PUT 50 GET
-            for load in 1000000 1500000 2000000 2500000 3000000 3500000 4000000 4400000 4800000 5200000 5600000 6000000 6200000 6400000 6600000 6800000;do 
+            #for load in 1000000 1500000 2000000 2500000 3000000 3500000 4000000 4400000 4800000 5200000 5600000 6000000 6200000 6400000 6600000 6800000;do 
+            #for load in 200000 400000 600000 800000 1000000 1200000 1400000 1600000 1800000 2000000 2200000;do 
+            
+            for load in 1000000 1300000 1600000 1900000 2200000 2500000 2800000 3100000 3400000 3700000 4000000 4300000 4600000 4900000 5200000 5500000;do 
+
+
+
             #for load in 1000000 2000000 3000000 4000000 5000000 6000000 6400000 6800000 7200000 7600000 8000000 8400000 8800000 9200000;do 
             #for load in 1000011;do #5600000 5900000 6200000 6500000 6800000 7100000 7400000 7700000 8000000 8300000 8600000 8900000 9200000;do 
             #for load in 1000000 2000000 3000000 4000000 4400000 4800000 5200000;do 
@@ -231,6 +237,7 @@ for serviceTime in 0;do #3 is EXP service time distribution
                 mkdir $dirName"/"$dist"/"$queues"/"$load
                 #./mtclient -d mlx5_0 -r 64 -g 3 -l $load 192.168.1.5 -z $dist -n $queues -t 12 -f $dirName"/"$dist"/"$queues"/"$load -x 50 -p 0
                 ./mtclient -d mlx5_0 -r 64 -g 3 -l $load 192.168.1.5 -z $dist -n $queues -t 12 -f $dirName"/"$dist"/"$queues"/"$load -x 50 -p 50
+                #./mtclient -d mlx5_0 -r 64 -g 3 -l $load 192.168.1.5 -z $dist -n $queues -t 12 -f $dirName"/"$dist"/"$queues"/"$load -x 10 -p 50
 
 
                 #./mtclient -d mlx5_0 -r 64 -g 3 -l $load 192.168.1.5 -z $dist -n $queues -t 12 -f $dirName"/"$dist"/"$queues"/"$load -x 10 -p 11

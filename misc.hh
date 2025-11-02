@@ -49,7 +49,7 @@ inline void napms(int n) /* nap n milliseconds */
 
 struct quick_istr {
     char* bbuf_;
-    char buf_[32];
+    char buf_[100];
     quick_istr() {
         buf_[sizeof(buf_) - 1] = 0;
         set(0);

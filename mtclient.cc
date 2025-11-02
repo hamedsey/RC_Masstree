@@ -2578,12 +2578,12 @@ int main(int argc, char *argv[])
 
 	for (uint16_t ii = 0; ii < numConnections; ii++) {
 		//uniform random
-		//std::uniform_int_distribution<uint32_t>* urkeys = new std::uniform_int_distribution<uint32_t>(keysPerConnection*ii, (keysPerConnection*(ii+1))-1);
+		std::uniform_int_distribution<uint32_t>* urkeys = new std::uniform_int_distribution<uint32_t>(keysPerConnection*ii, (keysPerConnection*(ii+1))-1);
 
 		//100% CAP RW-LLC
 		//std::uniform_int_distribution<uint32_t>* urkeys = new std::uniform_int_distribution<uint32_t>(keysPerConnection*ii, (keysPerConnection*ii)+845);
 		//10% CAP RW-LLC
-		std::uniform_int_distribution<uint32_t>* urkeys = new std::uniform_int_distribution<uint32_t>(keysPerConnection*ii, (keysPerConnection*ii)+8409);
+		//std::uniform_int_distribution<uint32_t>* urkeys = new std::uniform_int_distribution<uint32_t>(keysPerConnection*ii, (keysPerConnection*ii)+8409);
 
 		for(uint64_t p = 0; p < connKeyArraySize; p++) {
 			random_keys[ii][p] = (*urkeys)(gen1);

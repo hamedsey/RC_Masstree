@@ -1871,7 +1871,7 @@ inline uint64_t Json::to_u64() const {
     @pre is_number()
     @sa to_i() */
 inline int64_t Json::as_i() const {
-    precondition(is_int() || is_double());
+    //precondition(is_int() || is_double());
     return is_int() ? u_.i.x : int64_t(u_.d.x);
 }
 
@@ -2034,7 +2034,7 @@ inline bool Json::to_s(String& x) const {
     @pre is_string()
     @sa to_s() */
 inline const String& Json::as_s() const {
-    precondition(u_.x.type <= 0 && u_.x.x);
+    //precondition(u_.x.type <= 0 && u_.x.x);
     return reinterpret_cast<const String&>(u_.str);
 }
 

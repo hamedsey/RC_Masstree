@@ -2829,7 +2829,7 @@ void* threadfunc(void* x) {
 					//my_sleep(uint64_t(3E2)); //75RPS
 				}
 				else if (wrID >= 0 && wrID < ctx->rx_depth) {
-					//printf("received pkt \n");
+					printf("received pkt \n");
                     /*
                     for(int p = 0; p < 40; p++)
 					{	
